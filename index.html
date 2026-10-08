@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">عبد اللطيف — مطوّر مواقع وذكاء اصطناعي</title>
+
+<!-- ===== Favicon (أيقونة التبويب) ===== -->
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -104,17 +109,20 @@
     flex-shrink: 0;
   }
 
-  .logo-mark {
-    width: 40px; height: 40px;
-    border-radius: 12px;
-    background: var(--gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: #fff;
-    box-shadow: var(--glow);
+  /* ===== الشعار الجديد (صورة) ===== */
+  .logo-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(124,92,255,0.5);
+    box-shadow: 0 0 15px rgba(124,92,255,0.5);
+    transition: 0.3s;
+  }
+
+  .logo:hover .logo-img {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(124,92,255,0.8);
   }
 
   .logo-text small {
@@ -362,6 +370,7 @@
     transform: translateY(-3px);
   }
 
+  /* ===== HERO VISUAL (الصورة الجديدة) ===== */
   .hero-visual {
     position: relative;
     display: flex;
@@ -369,17 +378,32 @@
     justify-content: center;
   }
 
-  .code-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px;
-    width: 100%;
-    max-width: 440px;
-    box-shadow: var(--shadow);
+  .hero-logo-wrap {
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 6px;
+    background: var(--gradient);
+    box-shadow: 0 0 80px rgba(124,92,255,0.5), 0 0 120px rgba(0,217,192,0.3);
     animation: float 6s ease-in-out infinite;
+  }
+
+  .hero-logo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #7c5cff, #00d9c0, #b44cff, #7c5cff);
+    opacity: 0.4;
+    filter: blur(20px);
+    z-index: -1;
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 
   @keyframes float {
@@ -387,41 +411,15 @@
     50% { transform: translateY(-15px); }
   }
 
-  .code-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gradient);
+  .hero-logo-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background: var(--bg);
+    border: 4px solid var(--bg);
   }
-
-  .code-header {
-    display: flex;
-    gap: 7px;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .code-dot { width: 12px; height: 12px; border-radius: 50%; }
-  .code-dot.r { background: #ff5f56; }
-  .code-dot.y { background: #ffbd2e; }
-  .code-dot.g { background: #27c93f; }
-
-  .code-line {
-    font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    line-height: 1.9;
-    color: var(--text-2);
-    direction: ltr;
-    text-align: left;
-  }
-
-  .code-line .key { color: #7c5cff; }
-  .code-line .str { color: #00d9c0; }
-  .code-line .num { color: #ffbd2e; }
-  .code-line .cmt { color: var(--text-3); font-style: italic; }
-  .code-line .fn { color: #b44cff; }
 
   /* ===== SECTIONS ===== */
   .section {
@@ -617,7 +615,7 @@
     font-weight: 600;
   }
 
-  /* ===== CONTACT / CTA ===== */
+  /* ===== CONTACT ===== */
   .contact-card {
     background: var(--bg-2);
     border: 1px solid var(--border);
@@ -737,10 +735,17 @@
     font-size: 1.05rem;
   }
 
+  footer .footer-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(124,92,255,0.5);
+  }
+
   footer a { color: var(--accent-2); text-decoration: none; transition: 0.2s; }
   footer a:hover { color: var(--accent); }
 
-  /* ===== REVEAL ANIMATION ===== */
+  /* ===== REVEAL ===== */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -772,17 +777,19 @@
     .hero-subtitle { margin-inline: auto; }
     .hero-buttons, .hero-socials { justify-content: center; }
     .status-badge { margin-inline: auto; }
-    .code-card { max-width: 100%; }
+    .hero-logo-wrap { max-width: 340px; margin: 0 auto; }
   }
 
   @media (max-width: 560px) {
     .lang-toggle button { padding: 6px 10px; font-size: 0.72rem; }
     .logo-text small { display: none; }
+    .logo-img { width: 38px; height: 38px; }
     .section { padding: 70px 18px; }
     .stats-grid { padding: 35px 20px; }
     .stat { border: none !important; }
     .contact-card { padding: 50px 22px; }
     .hero { padding: 100px 18px 60px; }
+    .hero-logo-wrap { max-width: 280px; }
   }
 </style>
 </head>
@@ -795,7 +802,8 @@
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href="#home" class="logo">
-      <div class="logo-mark">ع</div>
+      <!-- ✅ الشعار الجديد في القائمة العلوية -->
+      <img src="logo.png" alt="Abd Ellatif Logo" class="logo-img">
       <div class="logo-text">
         <span id="navLogoName">عبد اللطيف</span>
         <small id="navLogoRole">AI &amp; WEB DEV</small>
@@ -865,21 +873,10 @@
       </div>
     </div>
 
+    <!-- ✅ الصورة الجديدة في الـ Hero -->
     <div class="hero-visual reveal">
-      <div class="code-card">
-        <div class="code-header">
-          <span class="code-dot r"></span>
-          <span class="code-dot y"></span>
-          <span class="code-dot g"></span>
-        </div>
-        <div class="code-line"><span class="cmt">// services.config.js</span></div>
-        <div class="code-line"><span class="key">const</span> <span class="fn">expert</span> = {</div>
-        <div class="code-line">&nbsp;&nbsp;name: <span class="str">'Abd Ellatif'</span>,</div>
-        <div class="code-line">&nbsp;&nbsp;skills: [<span class="str">'Web'</span>, <span class="str">'AI'</span>, <span class="str">'Design'</span>],</div>
-        <div class="code-line">&nbsp;&nbsp;creates: [<span class="str">'Stories'</span>, <span class="str">'Logos'</span>],</div>
-        <div class="code-line">&nbsp;&nbsp;projects: <span class="num">50</span>+,</div>
-        <div class="code-line">&nbsp;&nbsp;available: <span class="key">true</span></div>
-        <div class="code-line">};</div>
+      <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Abd Ellatif - Website Developer" class="hero-logo-img">
       </div>
     </div>
   </div>
@@ -896,7 +893,6 @@
 
     <div class="services-grid">
 
-      <!-- 1. Portfolio -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">🌐</div>
         <h3 id="c1Title">مواقع البورتفوليو</h3>
@@ -908,7 +904,6 @@
         </div>
       </div>
 
-      <!-- 2. Educational -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">📚</div>
         <h3 id="c2Title">مواقع تعليمية وكورسات</h3>
@@ -920,7 +915,6 @@
         </div>
       </div>
 
-      <!-- 3. AI Coach -->
       <div class="service-card ai reveal">
         <div class="service-icon-wrap">🤖</div>
         <h3 id="c3Title">موقع مدربة بالذكاء الاصطناعي</h3>
@@ -932,7 +926,6 @@
         </div>
       </div>
 
-      <!-- 4. Stories -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">📖</div>
         <h3 id="c4Title">إنشاء القصص</h3>
@@ -944,7 +937,6 @@
         </div>
       </div>
 
-      <!-- 5. Coloring Books -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">🎨</div>
         <h3 id="c5Title">كتب التلوين</h3>
@@ -956,7 +948,6 @@
         </div>
       </div>
 
-      <!-- 6. Presentations -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">📊</div>
         <h3 id="c6Title">إنشاء العروض التقديمية</h3>
@@ -968,7 +959,6 @@
         </div>
       </div>
 
-      <!-- 7. Logos -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">✨</div>
         <h3 id="c7Title">إنشاء اللوجوهات</h3>
@@ -980,7 +970,6 @@
         </div>
       </div>
 
-      <!-- 8. Books -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">📕</div>
         <h3 id="c8Title">إنشاء الكتب</h3>
@@ -1061,7 +1050,7 @@
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-logo">
-    <div class="logo-mark" style="width:32px;height:32px;font-size:0.95rem;">ع</div>
+    <img src="logo.png" alt="Abd Ellatif">
     <span id="footerName">عبد اللطيف</span>
   </div>
   <p id="footerCopy">© 2025 عبد اللطيف — جميع الحقوق محفوظة</p>
@@ -1085,42 +1074,24 @@
       heroSubtitle: "مطوّر مواقع ومختص في الذكاء الاصطناعي، أصنع مواقع احترافية، قصصًا، كتب تلوين، عروضًا تقديمية، لوجوهات وكتبًا بجودة عالية.",
       heroBtnServices: "🚀 استكشف خدماتي",
       heroBtnContact: "📩 تواصل معي",
-      srvTag: "الخدمات",
-      srvTitle: "ما أقدّمه لك",
+      srvTag: "الخدمات", srvTitle: "ما أقدّمه لك",
       srvDesc: "خدمات رقمية وإبداعية احترافية في برمجة المواقع، الذكاء الاصطناعي، التصميم وإنشاء المحتوى.",
-
-      c1Title: "مواقع البورتفوليو",
-      c1Desc: "موقع شخصي احترافي لعرض أعمالك ومهاراتك وخبراتك، بتصميم عصري متجاوب مع كل الأجهزة.",
+      c1Title: "مواقع البورتفوليو", c1Desc: "موقع شخصي احترافي لعرض أعمالك ومهاراتك وخبراتك، بتصميم عصري متجاوب مع كل الأجهزة.",
       c1T1: "تصميم عصري", c1T2: "متجاوب", c1T3: "سريع",
-
-      c2Title: "مواقع تعليمية وكورسات",
-      c2Desc: "مواقع تعليمية متكاملة أو منصات لعرض الدروس والكورسات بتنظيم احترافي وسهولة استخدام.",
+      c2Title: "مواقع تعليمية وكورسات", c2Desc: "مواقع تعليمية متكاملة أو منصات لعرض الدروس والكورسات بتنظيم احترافي وسهولة استخدام.",
       c2T1: "دروس", c2T2: "كورسات", c2T3: "تفاعلي",
-
-      c3Title: "موقع مدربة بالذكاء الاصطناعي",
-      c3Desc: "موقع تعليمي وإرشادي بتقنية AI يقدّم دروسًا ونصائح وإفادة بشكل تفاعلي ذكي.",
+      c3Title: "موقع مدربة بالذكاء الاصطناعي", c3Desc: "موقع تعليمي وإرشادي بتقنية AI يقدّم دروسًا ونصائح وإفادة بشكل تفاعلي ذكي.",
       c3T1: "ذكاء اصطناعي", c3T2: "نصائح", c3T3: "تفاعلي",
-
-      c4Title: "إنشاء القصص",
-      c4Desc: "كتابة وإنشاء قصص مخصّصة للأطفال أو الكبار، بأساليب مبتكرة ومحتوى هادف وجاذب.",
+      c4Title: "إنشاء القصص", c4Desc: "كتابة وإنشاء قصص مخصّصة للأطفال أو الكبار، بأساليب مبتكرة ومحتوى هادف وجاذب.",
       c4T1: "قصص أطفال", c4T2: "سرد إبداعي", c4T3: "محتوى هادف",
-
-      c5Title: "كتب التلوين",
-      c5Desc: "تصميم كتب تلوين احترافية للأطفال بجودة عالية ورسومات متنوعة وجاهزة للطباعة.",
+      c5Title: "كتب التلوين", c5Desc: "تصميم كتب تلوين احترافية للأطفال بجودة عالية ورسومات متنوعة وجاهزة للطباعة.",
       c5T1: "للأطفال", c5T2: "جاهز للطباعة", c5T3: "تصميم جذاب",
-
-      c6Title: "إنشاء العروض التقديمية",
-      c6Desc: "عروض تقديمية احترافية بتصميم أنيق ومحتوى منظّم، مناسبة للدراسة أو العمل أو المشاريع.",
+      c6Title: "إنشاء العروض التقديمية", c6Desc: "عروض تقديمية احترافية بتصميم أنيق ومحتوى منظّم، مناسبة للدراسة أو العمل أو المشاريع.",
       c6T1: "PowerPoint", c6T2: "تصميم أنيق", c6T3: "احترافي",
-
-      c7Title: "إنشاء اللوجوهات",
-      c7Desc: "تصميم شعارات احترافية تعبّر عن هوية مشروعك أو علامتك التجارية بشكل مميّز وفريد.",
+      c7Title: "إنشاء اللوجوهات", c7Desc: "تصميم شعارات احترافية تعبّر عن هوية مشروعك أو علامتك التجارية بشكل مميّز وفريد.",
       c7T1: "هوية بصرية", c7T2: "تصميم فريد", c7T3: "احترافي",
-
-      c8Title: "إنشاء الكتب",
-      c8Desc: "كتابة وتنسيق كتب إلكترونية أو مطبوعة في مختلف المجالات، بمحتوى منظّم وتصميم أنيق.",
+      c8Title: "إنشاء الكتب", c8Desc: "كتابة وتنسيق كتب إلكترونية أو مطبوعة في مختلف المجالات، بمحتوى منظّم وتصميم أنيق.",
       c8T1: "تأليف", c8T2: "تنسيق", c8T3: "إلكتروني / مطبوع",
-
       f1: "مشروع منجز", f2: "رضا العملاء", f3: "دعم ومتابعة", f4: "إنجاز في الوقت",
       ctaTitle: "هل أنت مستعد لبدء مشروعك؟",
       ctaDesc: "تواصل معي الآن وسنحوّل فكرتك إلى واقع احترافي بجودة عالية.",
@@ -1133,47 +1104,27 @@
       navHome: "Home", navServices: "Services", navStats: "Achievements", navContact: "Contact",
       navCtaText: "Hire Me",
       heroStatus: "Available for new projects",
-      heroGreet: "Hi, I'm",
-      heroName: "Abd Ellatif",
+      heroGreet: "Hi, I'm", heroName: "Abd Ellatif",
       heroSubtitle: "Web developer and AI specialist. I create professional websites, stories, coloring books, presentations, logos and books with high quality.",
-      heroBtnServices: "🚀 Explore Services",
-      heroBtnContact: "📩 Contact Me",
-      srvTag: "Services",
-      srvTitle: "What I Offer",
+      heroBtnServices: "🚀 Explore Services", heroBtnContact: "📩 Contact Me",
+      srvTag: "Services", srvTitle: "What I Offer",
       srvDesc: "Professional digital and creative services in web development, AI, design and content creation.",
-
-      c1Title: "Portfolio Websites",
-      c1Desc: "A professional personal website to showcase your work, skills, and experience, with a modern responsive design.",
+      c1Title: "Portfolio Websites", c1Desc: "A professional personal website to showcase your work, skills, and experience, with a modern responsive design.",
       c1T1: "Modern Design", c1T2: "Responsive", c1T3: "Fast",
-
-      c2Title: "Educational & Course Websites",
-      c2Desc: "Complete educational websites or platforms for lessons and courses, professionally organized and easy to use.",
+      c2Title: "Educational & Course Websites", c2Desc: "Complete educational websites or platforms for lessons and courses, professionally organized and easy to use.",
       c2T1: "Lessons", c2T2: "Courses", c2T3: "Interactive",
-
-      c3Title: "AI-Powered Coaching Website",
-      c3Desc: "An educational and guidance website powered by AI, offering lessons, tips, and valuable interactive content.",
+      c3Title: "AI-Powered Coaching Website", c3Desc: "An educational and guidance website powered by AI, offering lessons, tips, and valuable interactive content.",
       c3T1: "AI Powered", c3T2: "Advice", c3T3: "Interactive",
-
-      c4Title: "Story Creation",
-      c4Desc: "Writing and creating custom stories for children or adults, with creative styles and valuable, engaging content.",
+      c4Title: "Story Creation", c4Desc: "Writing and creating custom stories for children or adults, with creative styles and valuable, engaging content.",
       c4T1: "Kids Stories", c4T2: "Creative Writing", c4T3: "Valuable Content",
-
-      c5Title: "Coloring Books",
-      c5Desc: "Professional coloring books design for children with high quality, diverse graphics and print-ready format.",
+      c5Title: "Coloring Books", c5Desc: "Professional coloring books design for children with high quality, diverse graphics and print-ready format.",
       c5T1: "For Kids", c5T2: "Print-Ready", c5T3: "Attractive Design",
-
-      c6Title: "Presentation Design",
-      c6Desc: "Professional presentations with elegant design and organized content, perfect for study, work or projects.",
+      c6Title: "Presentation Design", c6Desc: "Professional presentations with elegant design and organized content, perfect for study, work or projects.",
       c6T1: "PowerPoint", c6T2: "Elegant Design", c6T3: "Professional",
-
-      c7Title: "Logo Design",
-      c7Desc: "Professional logos that reflect your project or brand identity in a distinctive and unique way.",
+      c7Title: "Logo Design", c7Desc: "Professional logos that reflect your project or brand identity in a distinctive and unique way.",
       c7T1: "Brand Identity", c7T2: "Unique Design", c7T3: "Professional",
-
-      c8Title: "Book Creation",
-      c8Desc: "Writing and formatting e-books or printed books in various fields, with organized content and elegant design.",
+      c8Title: "Book Creation", c8Desc: "Writing and formatting e-books or printed books in various fields, with organized content and elegant design.",
       c8T1: "Writing", c8T2: "Formatting", c8T3: "Digital / Print",
-
       f1: "Projects Completed", f2: "Client Satisfaction", f3: "Support & Follow-up", f4: "On-time Delivery",
       ctaTitle: "Ready to Start Your Project?",
       ctaDesc: "Contact me now and let's turn your idea into a professional reality with high quality.",
@@ -1197,17 +1148,11 @@
     setT('navHome', t.navHome); setT('navServices', t.navServices);
     setT('navStats', t.navStats); setT('navContact', t.navContact);
     setT('navCtaText', t.navCtaText);
-
     setT('heroStatus', t.heroStatus);
-    setT('heroGreet', t.heroGreet);
-    setT('heroName', t.heroName);
+    setT('heroGreet', t.heroGreet); setT('heroName', t.heroName);
     setT('heroSubtitle', t.heroSubtitle);
-    setT('heroBtnServices', t.heroBtnServices);
-    setT('heroBtnContact', t.heroBtnContact);
-
-    setT('srvTag', t.srvTag);
-    setT('srvTitle', t.srvTitle);
-    setT('srvDesc', t.srvDesc);
+    setT('heroBtnServices', t.heroBtnServices); setT('heroBtnContact', t.heroBtnContact);
+    setT('srvTag', t.srvTag); setT('srvTitle', t.srvTitle); setT('srvDesc', t.srvDesc);
 
     setT('c1Title', t.c1Title); setT('c1Desc', t.c1Desc);
     setT('c1T1', t.c1T1); setT('c1T2', t.c1T2); setT('c1T3', t.c1T3);
@@ -1234,15 +1179,9 @@
     setT('c8T1', t.c8T1); setT('c8T2', t.c8T2); setT('c8T3', t.c8T3);
 
     setT('f1', t.f1); setT('f2', t.f2); setT('f3', t.f3); setT('f4', t.f4);
-
-    setT('ctaTitle', t.ctaTitle);
-    setT('ctaDesc', t.ctaDesc);
-    setT('ciWaLabel', t.ciWaLabel);
-    setT('ciIgLabel', t.ciIgLabel);
-    setT('ciMlLabel', t.ciMlLabel);
-
-    setT('footerName', t.footerName);
-    setT('footerCopy', t.footerCopy);
+    setT('ctaTitle', t.ctaTitle); setT('ctaDesc', t.ctaDesc);
+    setT('ciWaLabel', t.ciWaLabel); setT('ciIgLabel', t.ciIgLabel); setT('ciMlLabel', t.ciMlLabel);
+    setT('footerName', t.footerName); setT('footerCopy', t.footerCopy);
 
     document.getElementById('btnAr').classList.toggle('active', isAr);
     document.getElementById('btnEn').classList.toggle('active', !isAr);
