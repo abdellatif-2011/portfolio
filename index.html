@@ -42,7 +42,6 @@
 
   html[dir="ltr"] body { font-family: 'Inter', 'Segoe UI', sans-serif; }
 
-  /* Background grid pattern */
   body::before {
     content: '';
     position: fixed;
@@ -55,7 +54,6 @@
     z-index: 0;
   }
 
-  /* Glowing orbs */
   .orb {
     position: fixed;
     border-radius: 50%;
@@ -364,7 +362,6 @@
     transform: translateY(-3px);
   }
 
-  /* Hero visual card */
   .hero-visual {
     position: relative;
     display: flex;
@@ -477,7 +474,7 @@
   /* ===== SERVICES ===== */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
   }
 
@@ -540,7 +537,7 @@
   }
 
   .service-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 12px;
     letter-spacing: -0.5px;
@@ -548,59 +545,31 @@
 
   .service-card > p {
     color: var(--text-2);
-    font-size: 0.95rem;
-    margin-bottom: 26px;
-    min-height: 60px;
+    font-size: 0.94rem;
+    margin-bottom: 0;
   }
 
-  .price-item {
+  .service-tags {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    border-top: 1px solid var(--border);
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
   }
 
-  .price-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .price-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-
-  .price-info .type {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .price-info .type .mini-icon { font-size: 0.85rem; opacity: 0.7; }
-
-  .price-info .hint {
+  .service-tags span {
     font-size: 0.76rem;
-    color: var(--text-3);
+    font-weight: 600;
+    color: var(--text-2);
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 50px;
+    transition: 0.3s;
   }
 
-  .price-tag {
-    font-weight: 900;
-    font-size: 1rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    white-space: nowrap;
-  }
-
-  .service-card.ai .price-tag {
-    background: linear-gradient(135deg, #00d9c0, #7c5cff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .service-card:hover .service-tags span {
+    border-color: var(--border-2);
+    color: var(--text);
   }
 
   /* ===== STATS ===== */
@@ -746,8 +715,6 @@
     text-overflow: ellipsis;
   }
 
-  html[dir="rtl"] .contact-item .ci-text span { direction: ltr; }
-
   /* ===== FOOTER ===== */
   footer {
     border-top: 1px solid var(--border);
@@ -781,7 +748,7 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===== MOBILE MENU ===== */
+  /* ===== MOBILE ===== */
   @media (max-width: 950px) {
     .nav-links {
       position: fixed;
@@ -848,7 +815,7 @@
         <button id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
       </div>
       <a href="https://wa.me/213699097066" target="_blank" class="nav-cta">
-        <span>💬</span> <span id="navCtaText">توظيفني</span>
+        <span>💬</span> <span id="navCtaText">وظّفني</span>
       </a>
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
     </div>
@@ -870,7 +837,7 @@
       </h1>
 
       <p class="hero-subtitle" id="heroSubtitle">
-        مطوّر مواقع ومختص في الذكاء الاصطناعي، أصنع مواقع احترافية تعليمية وشخصية بجودة عالية وأسعار مناسبة.
+        مطوّر مواقع ومختص في الذكاء الاصطناعي، أصنع مواقع احترافية، قصصًا، كتب تلوين، عروضًا تقديمية، لوجوهات وكتبًا بجودة عالية.
       </p>
 
       <div class="hero-buttons">
@@ -905,11 +872,11 @@
           <span class="code-dot y"></span>
           <span class="code-dot g"></span>
         </div>
-        <div class="code-line"><span class="cmt">// portfolio.config.js</span></div>
-        <div class="code-line"><span class="key">const</span> <span class="fn">developer</span> = {</div>
+        <div class="code-line"><span class="cmt">// services.config.js</span></div>
+        <div class="code-line"><span class="key">const</span> <span class="fn">expert</span> = {</div>
         <div class="code-line">&nbsp;&nbsp;name: <span class="str">'Abd Ellatif'</span>,</div>
-        <div class="code-line">&nbsp;&nbsp;role: <span class="str">'Web &amp; AI Dev'</span>,</div>
-        <div class="code-line">&nbsp;&nbsp;skills: [<span class="str">'HTML'</span>, <span class="str">'AI'</span>, <span class="str">'JS'</span>],</div>
+        <div class="code-line">&nbsp;&nbsp;skills: [<span class="str">'Web'</span>, <span class="str">'AI'</span>, <span class="str">'Design'</span>],</div>
+        <div class="code-line">&nbsp;&nbsp;creates: [<span class="str">'Stories'</span>, <span class="str">'Logos'</span>],</div>
         <div class="code-line">&nbsp;&nbsp;projects: <span class="num">50</span>+,</div>
         <div class="code-line">&nbsp;&nbsp;available: <span class="key">true</span></div>
         <div class="code-line">};</div>
@@ -924,74 +891,104 @@
     <div class="section-header reveal">
       <span class="section-tag" id="srvTag">الخدمات</span>
       <h2 id="srvTitle">ما أقدّمه لك</h2>
-      <p id="srvDesc">خدمات رقمية احترافية في برمجة المواقع والذكاء الاصطناعي، بجودة عالية وأسعار تنافسية.</p>
+      <p id="srvDesc">خدمات رقمية وإبداعية احترافية في برمجة المواقع، الذكاء الاصطناعي، التصميم وإنشاء المحتوى.</p>
     </div>
 
     <div class="services-grid">
 
-      <!-- Card 1 -->
+      <!-- 1. Portfolio -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">🌐</div>
         <h3 id="c1Title">مواقع البورتفوليو</h3>
         <p id="c1Desc">موقع شخصي احترافي لعرض أعمالك ومهاراتك وخبراتك، بتصميم عصري متجاوب مع كل الأجهزة.</p>
-
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🆓</span> <span id="c1L1">استضافة مجانية</span></span>
-            <span class="hint" id="c1L1s">اسم الموقع: اسمك + كلمة إضافية</span>
-          </div>
-          <span class="price-tag" id="c1P1">7000 دج</span>
-        </div>
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🌍</span> <span id="c1L2">استضافة مدفوعة</span></span>
-            <span class="hint" id="c1L2s">اسمك.com مباشرة</span>
-          </div>
-          <span class="price-tag" id="c1P2">23000 دج</span>
+        <div class="service-tags">
+          <span id="c1T1">تصميم عصري</span>
+          <span id="c1T2">متجاوب</span>
+          <span id="c1T3">سريع</span>
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- 2. Educational -->
       <div class="service-card reveal">
         <div class="service-icon-wrap">📚</div>
         <h3 id="c2Title">مواقع تعليمية وكورسات</h3>
         <p id="c2Desc">مواقع تعليمية متكاملة أو منصات لعرض الدروس والكورسات بتنظيم احترافي وسهولة استخدام.</p>
-
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🆓</span> <span id="c2L1">استضافة مجانية</span></span>
-            <span class="hint" id="c2L1s">اسم الموقع: اسمك + كلمة إضافية</span>
-          </div>
-          <span class="price-tag" id="c2P1">7000 دج</span>
-        </div>
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🌍</span> <span id="c2L2">استضافة مدفوعة</span></span>
-            <span class="hint" id="c2L2s">اسمك.com مباشرة</span>
-          </div>
-          <span class="price-tag" id="c2P2">23000 دج</span>
+        <div class="service-tags">
+          <span id="c2T1">دروس</span>
+          <span id="c2T2">كورسات</span>
+          <span id="c2T3">تفاعلي</span>
         </div>
       </div>
 
-      <!-- Card 3 -->
+      <!-- 3. AI Coach -->
       <div class="service-card ai reveal">
         <div class="service-icon-wrap">🤖</div>
         <h3 id="c3Title">موقع مدربة بالذكاء الاصطناعي</h3>
         <p id="c3Desc">موقع تعليمي وإرشادي بتقنية AI يقدّم دروسًا ونصائح وإفادة بشكل تفاعلي ذكي.</p>
-
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🆓</span> <span id="c3L1">استضافة مجانية</span></span>
-            <span class="hint" id="c3L1s">اسم الموقع: اسمك + كلمة إضافية</span>
-          </div>
-          <span class="price-tag" id="c3P1">6000 دج</span>
+        <div class="service-tags">
+          <span id="c3T1">ذكاء اصطناعي</span>
+          <span id="c3T2">نصائح</span>
+          <span id="c3T3">تفاعلي</span>
         </div>
-        <div class="price-item">
-          <div class="price-info">
-            <span class="type"><span class="mini-icon">🌍</span> <span id="c3L2">استضافة مدفوعة</span></span>
-            <span class="hint" id="c3L2s">اسمك.com مباشرة</span>
-          </div>
-          <span class="price-tag" id="c3P2">25000 دج</span>
+      </div>
+
+      <!-- 4. Stories -->
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">📖</div>
+        <h3 id="c4Title">إنشاء القصص</h3>
+        <p id="c4Desc">كتابة وإنشاء قصص مخصّصة للأطفال أو الكبار، بأساليب مبتكرة ومحتوى هادف وجاذب.</p>
+        <div class="service-tags">
+          <span id="c4T1">قصص أطفال</span>
+          <span id="c4T2">سرد إبداعي</span>
+          <span id="c4T3">محتوى هادف</span>
+        </div>
+      </div>
+
+      <!-- 5. Coloring Books -->
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">🎨</div>
+        <h3 id="c5Title">كتب التلوين</h3>
+        <p id="c5Desc">تصميم كتب تلوين احترافية للأطفال بجودة عالية ورسومات متنوعة وجاهزة للطباعة.</p>
+        <div class="service-tags">
+          <span id="c5T1">للأطفال</span>
+          <span id="c5T2">جاهز للطباعة</span>
+          <span id="c5T3">تصميم جذاب</span>
+        </div>
+      </div>
+
+      <!-- 6. Presentations -->
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">📊</div>
+        <h3 id="c6Title">إنشاء العروض التقديمية</h3>
+        <p id="c6Desc">عروض تقديمية احترافية بتصميم أنيق ومحتوى منظّم، مناسبة للدراسة أو العمل أو المشاريع.</p>
+        <div class="service-tags">
+          <span id="c6T1">PowerPoint</span>
+          <span id="c6T2">تصميم أنيق</span>
+          <span id="c6T3">احترافي</span>
+        </div>
+      </div>
+
+      <!-- 7. Logos -->
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">✨</div>
+        <h3 id="c7Title">إنشاء اللوجوهات</h3>
+        <p id="c7Desc">تصميم شعارات احترافية تعبّر عن هوية مشروعك أو علامتك التجارية بشكل مميّز وفريد.</p>
+        <div class="service-tags">
+          <span id="c7T1">هوية بصرية</span>
+          <span id="c7T2">تصميم فريد</span>
+          <span id="c7T3">احترافي</span>
+        </div>
+      </div>
+
+      <!-- 8. Books -->
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">📕</div>
+        <h3 id="c8Title">إنشاء الكتب</h3>
+        <p id="c8Desc">كتابة وتنسيق كتب إلكترونية أو مطبوعة في مختلف المجالات، بمحتوى منظّم وتصميم أنيق.</p>
+        <div class="service-tags">
+          <span id="c8T1">تأليف</span>
+          <span id="c8T2">تنسيق</span>
+          <span id="c8T3">إلكتروني / مطبوع</span>
         </div>
       </div>
 
@@ -1027,12 +1024,12 @@
   </div>
 </section>
 
-<!-- ===== CONTACT / CTA ===== -->
+<!-- ===== CONTACT ===== -->
 <section class="section" id="contact" style="padding-top:0;">
   <div class="section-container">
     <div class="contact-card reveal">
       <h2 id="ctaTitle">هل أنت مستعد لبدء مشروعك؟</h2>
-      <p id="ctaDesc">تواصل معي الآن وسنحوّل فكرتك إلى موقع احترافي بأسعار مناسبة وجودة عالية.</p>
+      <p id="ctaDesc">تواصل معي الآن وسنحوّل فكرتك إلى واقع احترافي بجودة عالية.</p>
 
       <div class="contact-grid">
         <a href="https://wa.me/213699097066" target="_blank" class="contact-item">
@@ -1076,7 +1073,6 @@
 </footer>
 
 <script>
-  // ===== Translations =====
   const translations = {
     ar: {
       title: "عبد اللطيف — مطوّر مواقع وذكاء اصطناعي",
@@ -1086,27 +1082,48 @@
       heroStatus: "متاح لمشاريع جديدة",
       heroGreet: "مرحبًا، أنا",
       heroName: "عبد اللطيف",
-      heroSubtitle: "مطوّر مواقع ومختص في الذكاء الاصطناعي، أصنع مواقع احترافية تعليمية وشخصية بجودة عالية وأسعار مناسبة.",
+      heroSubtitle: "مطوّر مواقع ومختص في الذكاء الاصطناعي، أصنع مواقع احترافية، قصصًا، كتب تلوين، عروضًا تقديمية، لوجوهات وكتبًا بجودة عالية.",
       heroBtnServices: "🚀 استكشف خدماتي",
       heroBtnContact: "📩 تواصل معي",
       srvTag: "الخدمات",
       srvTitle: "ما أقدّمه لك",
-      srvDesc: "خدمات رقمية احترافية في برمجة المواقع والذكاء الاصطناعي، بجودة عالية وأسعار تنافسية.",
+      srvDesc: "خدمات رقمية وإبداعية احترافية في برمجة المواقع، الذكاء الاصطناعي، التصميم وإنشاء المحتوى.",
+
       c1Title: "مواقع البورتفوليو",
       c1Desc: "موقع شخصي احترافي لعرض أعمالك ومهاراتك وخبراتك، بتصميم عصري متجاوب مع كل الأجهزة.",
-      c1L1: "استضافة مجانية", c1L1s: "اسم الموقع: اسمك + كلمة إضافية", c1P1: "7000 دج",
-      c1L2: "استضافة مدفوعة", c1L2s: "اسمك.com مباشرة", c1P2: "23000 دج",
+      c1T1: "تصميم عصري", c1T2: "متجاوب", c1T3: "سريع",
+
       c2Title: "مواقع تعليمية وكورسات",
       c2Desc: "مواقع تعليمية متكاملة أو منصات لعرض الدروس والكورسات بتنظيم احترافي وسهولة استخدام.",
-      c2L1: "استضافة مجانية", c2L1s: "اسم الموقع: اسمك + كلمة إضافية", c2P1: "7000 دج",
-      c2L2: "استضافة مدفوعة", c2L2s: "اسمك.com مباشرة", c2P2: "23000 دج",
+      c2T1: "دروس", c2T2: "كورسات", c2T3: "تفاعلي",
+
       c3Title: "موقع مدربة بالذكاء الاصطناعي",
       c3Desc: "موقع تعليمي وإرشادي بتقنية AI يقدّم دروسًا ونصائح وإفادة بشكل تفاعلي ذكي.",
-      c3L1: "استضافة مجانية", c3L1s: "اسم الموقع: اسمك + كلمة إضافية", c3P1: "6000 دج",
-      c3L2: "استضافة مدفوعة", c3L2s: "اسمك.com مباشرة", c3P2: "25000 دج",
+      c3T1: "ذكاء اصطناعي", c3T2: "نصائح", c3T3: "تفاعلي",
+
+      c4Title: "إنشاء القصص",
+      c4Desc: "كتابة وإنشاء قصص مخصّصة للأطفال أو الكبار، بأساليب مبتكرة ومحتوى هادف وجاذب.",
+      c4T1: "قصص أطفال", c4T2: "سرد إبداعي", c4T3: "محتوى هادف",
+
+      c5Title: "كتب التلوين",
+      c5Desc: "تصميم كتب تلوين احترافية للأطفال بجودة عالية ورسومات متنوعة وجاهزة للطباعة.",
+      c5T1: "للأطفال", c5T2: "جاهز للطباعة", c5T3: "تصميم جذاب",
+
+      c6Title: "إنشاء العروض التقديمية",
+      c6Desc: "عروض تقديمية احترافية بتصميم أنيق ومحتوى منظّم، مناسبة للدراسة أو العمل أو المشاريع.",
+      c6T1: "PowerPoint", c6T2: "تصميم أنيق", c6T3: "احترافي",
+
+      c7Title: "إنشاء اللوجوهات",
+      c7Desc: "تصميم شعارات احترافية تعبّر عن هوية مشروعك أو علامتك التجارية بشكل مميّز وفريد.",
+      c7T1: "هوية بصرية", c7T2: "تصميم فريد", c7T3: "احترافي",
+
+      c8Title: "إنشاء الكتب",
+      c8Desc: "كتابة وتنسيق كتب إلكترونية أو مطبوعة في مختلف المجالات، بمحتوى منظّم وتصميم أنيق.",
+      c8T1: "تأليف", c8T2: "تنسيق", c8T3: "إلكتروني / مطبوع",
+
       f1: "مشروع منجز", f2: "رضا العملاء", f3: "دعم ومتابعة", f4: "إنجاز في الوقت",
       ctaTitle: "هل أنت مستعد لبدء مشروعك؟",
-      ctaDesc: "تواصل معي الآن وسنحوّل فكرتك إلى موقع احترافي بأسعار مناسبة وجودة عالية.",
+      ctaDesc: "تواصل معي الآن وسنحوّل فكرتك إلى واقع احترافي بجودة عالية.",
       ciWaLabel: "واتساب", ciIgLabel: "إنستاغرام", ciMlLabel: "البريد الإلكتروني",
       footerName: "عبد اللطيف", footerCopy: "© 2025 عبد اللطيف — جميع الحقوق محفوظة"
     },
@@ -1118,33 +1135,53 @@
       heroStatus: "Available for new projects",
       heroGreet: "Hi, I'm",
       heroName: "Abd Ellatif",
-      heroSubtitle: "Web developer and AI specialist. I build professional, educational and personal websites with high quality at affordable prices.",
+      heroSubtitle: "Web developer and AI specialist. I create professional websites, stories, coloring books, presentations, logos and books with high quality.",
       heroBtnServices: "🚀 Explore Services",
       heroBtnContact: "📩 Contact Me",
       srvTag: "Services",
       srvTitle: "What I Offer",
-      srvDesc: "Professional digital services in web development and AI, with high quality and competitive prices.",
+      srvDesc: "Professional digital and creative services in web development, AI, design and content creation.",
+
       c1Title: "Portfolio Websites",
       c1Desc: "A professional personal website to showcase your work, skills, and experience, with a modern responsive design.",
-      c1L1: "Free Hosting", c1L1s: "Site name: your name + extra word", c1P1: "7000 DA",
-      c1L2: "Paid Hosting", c1L2s: "yourname.com directly", c1P2: "23000 DA",
+      c1T1: "Modern Design", c1T2: "Responsive", c1T3: "Fast",
+
       c2Title: "Educational & Course Websites",
       c2Desc: "Complete educational websites or platforms for lessons and courses, professionally organized and easy to use.",
-      c2L1: "Free Hosting", c2L1s: "Site name: your name + extra word", c2P1: "7000 DA",
-      c2L2: "Paid Hosting", c2L2s: "yourname.com directly", c2P2: "23000 DA",
+      c2T1: "Lessons", c2T2: "Courses", c2T3: "Interactive",
+
       c3Title: "AI-Powered Coaching Website",
       c3Desc: "An educational and guidance website powered by AI, offering lessons, tips, and valuable interactive content.",
-      c3L1: "Free Hosting", c3L1s: "Site name: your name + extra word", c3P1: "6000 DA",
-      c3L2: "Paid Hosting", c3L2s: "yourname.com directly", c3P2: "25000 DA",
+      c3T1: "AI Powered", c3T2: "Advice", c3T3: "Interactive",
+
+      c4Title: "Story Creation",
+      c4Desc: "Writing and creating custom stories for children or adults, with creative styles and valuable, engaging content.",
+      c4T1: "Kids Stories", c4T2: "Creative Writing", c4T3: "Valuable Content",
+
+      c5Title: "Coloring Books",
+      c5Desc: "Professional coloring books design for children with high quality, diverse graphics and print-ready format.",
+      c5T1: "For Kids", c5T2: "Print-Ready", c5T3: "Attractive Design",
+
+      c6Title: "Presentation Design",
+      c6Desc: "Professional presentations with elegant design and organized content, perfect for study, work or projects.",
+      c6T1: "PowerPoint", c6T2: "Elegant Design", c6T3: "Professional",
+
+      c7Title: "Logo Design",
+      c7Desc: "Professional logos that reflect your project or brand identity in a distinctive and unique way.",
+      c7T1: "Brand Identity", c7T2: "Unique Design", c7T3: "Professional",
+
+      c8Title: "Book Creation",
+      c8Desc: "Writing and formatting e-books or printed books in various fields, with organized content and elegant design.",
+      c8T1: "Writing", c8T2: "Formatting", c8T3: "Digital / Print",
+
       f1: "Projects Completed", f2: "Client Satisfaction", f3: "Support & Follow-up", f4: "On-time Delivery",
       ctaTitle: "Ready to Start Your Project?",
-      ctaDesc: "Contact me now and let's turn your idea into a professional website at a great price and top quality.",
+      ctaDesc: "Contact me now and let's turn your idea into a professional reality with high quality.",
       ciWaLabel: "WhatsApp", ciIgLabel: "Instagram", ciMlLabel: "Email",
       footerName: "Abd Ellatif", footerCopy: "© 2025 Abd Ellatif — All Rights Reserved"
     }
   };
 
-  // ===== Set Language =====
   function setLang(lang) {
     const t = translations[lang];
     const html = document.getElementById('htmlRoot');
@@ -1154,17 +1191,13 @@
     html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
     document.title = t.title;
 
-    // Text setter
     const setT = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    const setH = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
 
-    // Nav
     setT('navLogoName', t.navLogoName); setT('navLogoRole', t.navLogoRole);
     setT('navHome', t.navHome); setT('navServices', t.navServices);
     setT('navStats', t.navStats); setT('navContact', t.navContact);
     setT('navCtaText', t.navCtaText);
 
-    // Hero
     setT('heroStatus', t.heroStatus);
     setT('heroGreet', t.heroGreet);
     setT('heroName', t.heroName);
@@ -1172,53 +1205,55 @@
     setT('heroBtnServices', t.heroBtnServices);
     setT('heroBtnContact', t.heroBtnContact);
 
-    // Services header
     setT('srvTag', t.srvTag);
     setT('srvTitle', t.srvTitle);
     setT('srvDesc', t.srvDesc);
 
-    // Card 1
     setT('c1Title', t.c1Title); setT('c1Desc', t.c1Desc);
-    setT('c1L1', t.c1L1); setT('c1L1s', t.c1L1s); setT('c1P1', t.c1P1);
-    setT('c1L2', t.c1L2); setT('c1L2s', t.c1L2s); setT('c1P2', t.c1P2);
+    setT('c1T1', t.c1T1); setT('c1T2', t.c1T2); setT('c1T3', t.c1T3);
 
-    // Card 2
     setT('c2Title', t.c2Title); setT('c2Desc', t.c2Desc);
-    setT('c2L1', t.c2L1); setT('c2L1s', t.c2L1s); setT('c2P1', t.c2P1);
-    setT('c2L2', t.c2L2); setT('c2L2s', t.c2L2s); setT('c2P2', t.c2P2);
+    setT('c2T1', t.c2T1); setT('c2T2', t.c2T2); setT('c2T3', t.c2T3);
 
-    // Card 3
     setT('c3Title', t.c3Title); setT('c3Desc', t.c3Desc);
-    setT('c3L1', t.c3L1); setT('c3L1s', t.c3L1s); setT('c3P1', t.c3P1);
-    setT('c3L2', t.c3L2); setT('c3L2s', t.c3L2s); setT('c3P2', t.c3P2);
+    setT('c3T1', t.c3T1); setT('c3T2', t.c3T2); setT('c3T3', t.c3T3);
 
-    // Stats
+    setT('c4Title', t.c4Title); setT('c4Desc', t.c4Desc);
+    setT('c4T1', t.c4T1); setT('c4T2', t.c4T2); setT('c4T3', t.c4T3);
+
+    setT('c5Title', t.c5Title); setT('c5Desc', t.c5Desc);
+    setT('c5T1', t.c5T1); setT('c5T2', t.c5T2); setT('c5T3', t.c5T3);
+
+    setT('c6Title', t.c6Title); setT('c6Desc', t.c6Desc);
+    setT('c6T1', t.c6T1); setT('c6T2', t.c6T2); setT('c6T3', t.c6T3);
+
+    setT('c7Title', t.c7Title); setT('c7Desc', t.c7Desc);
+    setT('c7T1', t.c7T1); setT('c7T2', t.c7T2); setT('c7T3', t.c7T3);
+
+    setT('c8Title', t.c8Title); setT('c8Desc', t.c8Desc);
+    setT('c8T1', t.c8T1); setT('c8T2', t.c8T2); setT('c8T3', t.c8T3);
+
     setT('f1', t.f1); setT('f2', t.f2); setT('f3', t.f3); setT('f4', t.f4);
 
-    // CTA
     setT('ctaTitle', t.ctaTitle);
     setT('ctaDesc', t.ctaDesc);
     setT('ciWaLabel', t.ciWaLabel);
     setT('ciIgLabel', t.ciIgLabel);
     setT('ciMlLabel', t.ciMlLabel);
 
-    // Footer
     setT('footerName', t.footerName);
     setT('footerCopy', t.footerCopy);
 
-    // Toggle buttons
     document.getElementById('btnAr').classList.toggle('active', isAr);
     document.getElementById('btnEn').classList.toggle('active', !isAr);
 
     try { localStorage.setItem('portfolioLang', lang); } catch(e) {}
   }
 
-  // ===== Navbar scroll effect =====
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // ===== Mobile menu =====
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
@@ -1226,7 +1261,6 @@
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
 
-  // ===== Reveal on scroll =====
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1238,7 +1272,6 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ===== Load saved language =====
   (function() {
     let saved = 'ar';
     try { saved = localStorage.getItem('portfolioLang') || 'ar'; } catch(e) {}
